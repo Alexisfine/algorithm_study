@@ -1,0 +1,23 @@
+package leetcode_questions.dynamic_programming;
+
+public class _32_Longest_Valid_Parentheses {
+    // Time: O(N)
+    // Space: O(N)
+    public int longestValidParentheses(String s) {
+        if (s == null || s.equals("")) return 0;
+        char[] str = s.toCharArray();
+        int[] dp = new int[str.length];
+        int pre = 0;
+        int max = 0;
+        for (int i = 1; i < str.length; i++) {
+            if (str[i] == ')') {
+                pre = i - dp[i-1] - 1;
+                if (pre >= 0 && str[pre] == '(') {
+                    dp[i] = dp[i-1] + 2 + (pre > 0 ? dp[pre-1] : 0);
+                }
+            }
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+}
