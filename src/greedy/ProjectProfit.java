@@ -30,7 +30,6 @@ public class ProjectProfit {
     public static int findMaxProfit(int k, int w, Project[] projects) {
         PriorityQueue<Project> minCost = new PriorityQueue<>(new MinCostComparator());
         PriorityQueue<Project> maxProfit = new PriorityQueue<>(new MaxProfitComparator());
-
         for (int i = 0; i < projects.length; i++) minCost.add(projects[i]);
         for (int i = 0; i < k; i++) {
             while (!minCost.isEmpty() && minCost.peek().cost <= w) maxProfit.add(minCost.poll());
