@@ -8,7 +8,7 @@ public class _347_TopK_Frequent_Elements {
 
     // Solution 1: Heap
     // Time: O(NlogK)
-    // Space: O(K)
+    // Space: O(N+K)
     public int[] topKFrequent(int[] nums, int k) {
         if (nums == null) return new int[]{};
         TopKRecord heap = new TopKRecord(k);
