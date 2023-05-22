@@ -29,7 +29,7 @@ public class Coffee {
         for (int i = 0; i < arr.length; i++) pq.add(new CoffeeMachine(0, arr[i]));
         // create an array to record drank time for every one
         int[] drankTime = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < people; i++) {
             CoffeeMachine fastest = pq.poll();
             fastest.availableTime += fastest.duration;
             drankTime[i] = fastest.availableTime;
@@ -65,7 +65,7 @@ public class Coffee {
         for (int i = 0; i < arr.length; i++) pq.add(new CoffeeMachine(0, arr[i]));
         // create an array to record drank time for every one
         int[] drankTime = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < people; i++) {
             CoffeeMachine fastest = pq.poll();
             fastest.availableTime += fastest.duration;
             drankTime[i] = fastest.availableTime;
