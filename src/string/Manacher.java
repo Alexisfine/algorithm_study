@@ -1,5 +1,7 @@
 package string;
 
+import java.util.List;
+
 public class Manacher {
     public static int maxLcpsLength(String s) {
         if (s == null || s.length() < 1) return 0;

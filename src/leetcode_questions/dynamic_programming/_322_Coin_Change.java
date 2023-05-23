@@ -1,25 +1,51 @@
 package leetcode_questions.dynamic_programming;
 
+import java.util.Arrays;
+
 public class _322_Coin_Change {
     public int coinChange1(int[] coins, int amount) {
-        return process1(coins, 0, amount);
+        int res = process(coins, 0, 0, amount, 0);
+        return res == Integer.MAX_VALUE ? -1 : res;
     }
 
-    private int process1(int[] coins, int index, int rest) {
-        if (rest < 0) return -1;
-        if (rest == 0) return 0;
-        if (index == coins.length) return -1;
+    private static int process(int[] coins, int index, int current, int amount, int times) {
+        if (current == amount) return times;
+        if (current > amount) return Integer.MAX_VALUE;
+        if (index == coins.length) return Integer.MAX_VALUE;
+        return Math.min(
+                process(coins, index, current + coins[index], amount, times + 1),
+                process(coins, index + 1, current, amount, times));
+    }
 
-        int p1 = process1(coins, index + 1, rest);
-        int p2Next = process1(coins, index + 1, rest - coins[index]);
-        if (p1 == -1 && p2Next == -1) {
-            return -1;
-        } else if (p1 == -1) {
-            return 1 + p2Next;
-        } else if (p2Next == -1) {
-            return p1;
-        } else {
-            return Math.min(p1, p2Next + 1);
+    public static int dpWay(int[] coins, int amount) {
+        if (coins == null || coins.length < 1) return 0;
+        int N = coins.length;
+        int[][] dp = new int[N][amount + 1];
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j <= amount; j++) {
+                if (j % coins[i] == 0) dp[i][j] = j / coins[i];
+                else dp[i][j] = Integer.MAX_VALUE;
+            }
         }
+
+        for (int i = 1; i < N; i++) {
+            for (int j = 0; j <= amount; j++) {
+                dp[i][j] = Math.min(dp[i][j], dp[i - 1][j]);
+                if (j - coins[i] >= 0) {
+                    dp[i][j] = Math.min(dp[i][j], dp[i][j - coins[i]] + 1);
+                }
+            }
+        }
+
+        return dp[N - 1][amount];
     }
+
+    public static void main(String[] args) {
+        System.out.println(dpWay(new int[]{186, 419, 83, 408}, 6249));
+    }
+
+
+
+
 }
