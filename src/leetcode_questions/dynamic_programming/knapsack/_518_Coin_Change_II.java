@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.knapsack;
 
 public class _518_Coin_Change_II {
     // Time: O(S*N)

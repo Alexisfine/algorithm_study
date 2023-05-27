@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.knapsack;
 
 public class _474_Ones_And_Zeroes {
     public int findMaxForm(String[] strs, int m, int n) {

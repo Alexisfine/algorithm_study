@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.knapsack;
 
 public class _377_Combination_Sum_IV {
     public static int combinationSum4(int[] nums, int target) {

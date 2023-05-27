@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.knapsack;
 
 public class _416_Partition_Equal_Subset_Sum {
 

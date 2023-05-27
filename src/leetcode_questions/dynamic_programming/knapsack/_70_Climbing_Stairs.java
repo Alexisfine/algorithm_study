@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.knapsack;
 
 public class _70_Climbing_Stairs {
     // Time: O(N)
