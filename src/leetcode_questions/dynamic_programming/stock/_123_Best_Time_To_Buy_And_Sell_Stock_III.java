@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.stock;
 
 import java.util.PriorityQueue;
 

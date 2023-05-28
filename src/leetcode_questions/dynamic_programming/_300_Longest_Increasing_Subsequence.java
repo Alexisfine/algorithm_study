@@ -1,5 +1,6 @@
 package leetcode_questions.dynamic_programming;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class _300_Longest_Increasing_Subsequence {
@@ -23,13 +24,34 @@ public class _300_Longest_Increasing_Subsequence {
     public static int lengthOfLIS2(int[] nums) {
         if (nums == null || nums.length < 1) return 0;
         int N = nums.length;
-        int[] dp = new int[N];
-        dp[0] = 1;
-
-        // the lowest upper bound for ascending subsequence with length of i+1
-        int[] endi = new int[N];
-        return 0;
+        ArrayList<Integer> sub = new ArrayList<>();
+        sub.add(nums[0]);
+        for (int i = 1; i < N; i++) {
+            if (nums[i] > sub.get(sub.size() - 1)) {
+                sub.add(nums[i]);
+            } else {
+                int index = binarySearch(sub, nums[i]);
+                sub.set(index, Math.min(sub.get(index), nums[i]));
+            }
+        }
+        return sub.get(sub.size() - 1);
     }
+
+    private static int binarySearch(ArrayList<Integer> ends, int target) {
+        int lo = 0;
+        int hi = ends.size() - 1;
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (ends.get(mid) == target) return mid;
+            if (ends.get(mid) < target) {
+                lo = mid + 1;
+            } else {
+                hi = mid - 1;
+            }
+        }
+        return lo;
+    }
+
 
 
 

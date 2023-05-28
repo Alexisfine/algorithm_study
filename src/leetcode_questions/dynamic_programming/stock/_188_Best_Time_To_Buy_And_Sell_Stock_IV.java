@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.stock;
 
 public class _188_Best_Time_To_Buy_And_Sell_Stock_IV {
     // Time: O(N*K)
