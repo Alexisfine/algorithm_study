@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.subarray_sequence_string;
 
 public class _1143_Longest_Common_Subsequence {
     // Time: O(M*N)

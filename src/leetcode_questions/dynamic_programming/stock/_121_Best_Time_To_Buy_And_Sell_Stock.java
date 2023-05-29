@@ -1,4 +1,4 @@
-package leetcode_questions.greedy;
+package leetcode_questions.dynamic_programming.stock;
 
 import java.util.Arrays;
 

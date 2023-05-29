@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.subarray_sequence_string;
 
 import java.util.ArrayList;
 import java.util.Arrays;

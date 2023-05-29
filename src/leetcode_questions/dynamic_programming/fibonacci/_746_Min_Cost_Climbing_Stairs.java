@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.fibonacci;
 
 public class _746_Min_Cost_Climbing_Stairs {
     // Time: O(N)

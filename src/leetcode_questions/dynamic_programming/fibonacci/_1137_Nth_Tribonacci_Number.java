@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.fibonacci;
 
 public class _1137_Nth_Tribonacci_Number {
     // Time: O(N)
