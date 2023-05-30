@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming.path;
+package leetcode_questions.dynamic_programming.matrix;
 
 public class _64_Minimum_Path_Sum {
     // Time: O(M * N)

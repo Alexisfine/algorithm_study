@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.subarray_sequence_string;
 
 public class _1220_Count_Vowels_Permutation {
     private static final int modulo = (int) (Math.pow(10, 9) + 7);

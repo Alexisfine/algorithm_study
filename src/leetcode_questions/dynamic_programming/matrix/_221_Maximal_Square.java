@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming;
+package leetcode_questions.dynamic_programming.matrix;
 
 public class _221_Maximal_Square {
     // Time: O(M*N)

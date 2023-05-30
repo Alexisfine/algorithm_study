@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming.path;
+package leetcode_questions.dynamic_programming.matrix;
 
 public class _63_Unique_Paths_II {
     // Time: O(M * N)

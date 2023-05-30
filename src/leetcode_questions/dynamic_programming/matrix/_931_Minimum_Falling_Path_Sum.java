@@ -1,4 +1,4 @@
-package leetcode_questions.dynamic_programming.path;
+package leetcode_questions.dynamic_programming.matrix;
 
 public class _931_Minimum_Falling_Path_Sum {
     public static int minFallingPathSum(int[][] matrix) {
