@@ -1,4 +1,4 @@
-package leetcode_questions.recursion;
+package leetcode_questions.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;

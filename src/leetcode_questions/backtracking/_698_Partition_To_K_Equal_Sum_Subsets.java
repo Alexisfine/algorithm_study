@@ -1,8 +1,6 @@
-package leetcode_questions.recursion;
+package leetcode_questions.backtracking;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class _698_Partition_To_K_Equal_Sum_Subsets {
     public static boolean canPartitionKSubsets(int[] nums, int k) {

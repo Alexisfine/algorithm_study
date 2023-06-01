@@ -6,21 +6,19 @@ import java.util.Comparator;
 public class _354_Russian_Doll_Envelopes {
     public int maxEnvelopes(int[][] envelopes) {
         int N = envelopes.length;
-        EnvelopeComparator comparator = new EnvelopeComparator();
-        int[] dp = new int[N];
-        int max = 1;
-        for (int i = 0; i < N; i++) {
-            dp[i] = 1;
-            int best = 0;
-            for (int j = i - 1; j >= 0; j--) {
-                if (comparator.compare(envelopes[j], envelopes[i]) < 0) {
-                    best = Math.max(best, dp[j]);
+        Arrays.sort(envelopes, new EnvelopeComparator());
+        int len = envelopes[N - 1][0];
+        int[][] dp = new int[N + 1][len + 1];
+        for (int i = N - 1; i >= 0; i--) {
+            for (int j = len; j >= 0; j--) {
+                if (j < envelopes[i][0]) {
+                    dp[i][j] = Math.max(dp[i + 1][j], dp[i + 1][envelopes[i][0]] + 1);
+                } else {
+                    dp[i][j] = dp[i + 1][j];
                 }
             }
-            dp[i] += best;
-            max = Math.max(max, dp[i]);
         }
-        return max;
+        return dp[0][0];
     }
 
 
@@ -31,13 +29,10 @@ public class _354_Russian_Doll_Envelopes {
             if (o1[0] != o2[0]) {
                 return o1[0] - o2[0];
             } else {
-                return o1[1] - o2[1];
+                return o2[1] - o1[1];
             }
         }
     }
 
-    public static void main(String[] args) {
-        _354_Russian_Doll_Envelopes test = new _354_Russian_Doll_Envelopes();
-        test.maxEnvelopes(new int[][]{{1,3}, {2,5}});
-    }
+
 }
