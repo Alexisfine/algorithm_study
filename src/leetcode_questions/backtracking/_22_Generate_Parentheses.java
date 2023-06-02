@@ -6,34 +6,36 @@ import java.util.List;
 public class _22_Generate_Parentheses {
     StringBuilder sb;
     List<String> list;
+    int n;
+    // Time: O(N * 2^N)
+    // Space: O(N)
     public List<String> generateParenthesis(int n) {
         this.sb = new StringBuilder();
         this.list = new ArrayList<>();
+        this.n = n;
         if (n == 0) return list;
-        process(n, 0, 0);
+        process(0, 0);
         return list;
     }
 
-    private void process(int rest, int mid, int end) {
-        if (rest == 0) {
+    private void process(int open, int close) {
+        if (open == close && open == n) {
             list.add(new String(sb));
             return;
         }
 
-        // add parentheses at middle
-        if (mid > 0) {
-            sb.insert(mid, '(');
-            sb.insert(mid + 1, ')');
-            process(rest - 1, mid + 1, mid + 2);
-            sb.deleteCharAt(mid);
-            sb.deleteCharAt(mid);
+        if (close < open) {
+            sb.append(')');
+            process(open, close + 1);
+            sb.deleteCharAt(sb.length() - 1);
         }
 
-        // add parentheses at the end
-        sb.insert(end, '(');
-        sb.insert(end + 1, ')');
-        process(rest - 1, end + 1, end + 2);
-        sb.deleteCharAt(end);
-        sb.deleteCharAt(end);
+        if (open < n) {
+            sb.append('(');
+            process(open + 1, close);
+            sb.deleteCharAt(sb.length() - 1);
+        }
     }
+
+
 }

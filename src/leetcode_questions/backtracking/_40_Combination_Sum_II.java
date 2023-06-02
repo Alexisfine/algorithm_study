@@ -5,36 +5,45 @@ import java.util.Arrays;
 import java.util.List;
 
 public class _40_Combination_Sum_II {
+    int[] candidates;
+    int target;
+    List<List<Integer>> res;
+    List<Integer> list;
     // Time: O(n * 2^n)
     // Space: O(2^n)
-    public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> res = new ArrayList<>();
-        if (candidates == null || candidates.length < 1) return res;
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
-        process(candidates, target, 0, new ArrayList<>(), res);
+        this.candidates = candidates;
+        this.target = target;
+        this.res = new ArrayList<>();
+        this.list = new ArrayList<>();
+        process(0, 0);
         return res;
     }
 
-    private static void process(int[] candidates, int target, int start,
-                                List<Integer> list, List<List<Integer>> res) {
-        // base case
-        if (target < 0) return;
-        if (target == 0) {
+    private void process(int index, int sum) {
+        if (sum == target) {
             res.add(new ArrayList<>(list));
-            return;
         }
+        if (index == candidates.length) return;
+        if (sum > target) return;
 
-        for (int i = start; i < candidates.length; i++) {
-            if (i != start && candidates[i] == candidates[i - 1]) continue;
-            list.add(candidates[i]);
-            process(candidates, target - candidates[i], i + 1, list, res);
-            list.remove(list.size() - 1);
+
+        // include index
+        list.add(candidates[index]);
+        process(index + 1, sum + candidates[index]);
+        list.remove(list.size() - 1);
+
+        while (index + 1 < candidates.length && candidates[index] == candidates[index + 1]) {
+            index++;
         }
-
-
+        process(index + 1, sum);
     }
 
     public static void main(String[] args) {
-        System.out.println(combinationSum2(new int[]{10,1,2,7,6,1,5}, 8));
+        _40_Combination_Sum_II s = new _40_Combination_Sum_II();
+        System.out.println(s.combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
     }
+
+
 }

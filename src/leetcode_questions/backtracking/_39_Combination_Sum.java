@@ -4,36 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class _39_Combination_Sum {
+    int[] candidates;
+    int target;
+    List<List<Integer>> res;
     // Time: O(n * 2^n)
     // Space: O(2^n)
-    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> res = new ArrayList<>();
-        process(candidates, target, 0, 0, res, new ArrayList<>());
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        this.candidates = candidates;
+        this.target = target;
+        this.res = new ArrayList<>();
+        process(0, 0, new ArrayList<>());
         return res;
     }
 
-    private static void process(int[] candidates, int target, int currentVal,
-                                int currentSum, List<List<Integer>> res, List<Integer> cur) {
+    private void process(int index, int currentSum, List<Integer> list) {
         // base case
         if (currentSum == target) {
-            res.add(cur);
+            res.add(list);
             return;
         }
-        if (currentVal == candidates.length) return;
+
+        if (index == candidates.length) return;
         if (currentSum > target) return;
 
-        for (int i = 0; i * candidates[currentVal] + currentSum <= target; i++) {
-            List<Integer> list = new ArrayList<>();
-            list.addAll(cur);
-            for (int j = 0; j < i; j++) list.add(candidates[currentVal]);
-            process(
-                    candidates,
-                    target,
-                    currentVal + 1,
-                    currentSum + i * candidates[currentVal],
-                    res,
-                    list
-            );
+        for (int i = 0; currentSum + candidates[index] * i <= target; i++) {
+            List<Integer> newList = new ArrayList<>(list);
+            for (int j = 0; j < i; j++) newList.add(candidates[index]);
+            process(index + 1, currentSum + i * candidates[index], newList);
         }
+    }
+
+    public static void main(String[] args) {
+        _39_Combination_Sum s = new _39_Combination_Sum();
+        System.out.println(s.combinationSum(new int[]{2, 3, 6, 7}, 7));
     }
 }
