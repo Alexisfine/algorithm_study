@@ -1,18 +1,36 @@
 package leetcode_questions.graph.disjoint_set;
 
-public class _323_Number_Of_Connected_Components_In_An_Undirected_Graph {
-    // Time: O(E + N)
-    // Space: O(N)
-    public int countComponents(int n, int[][] edges) {
-        UnionFind uf = new UnionFind(n);
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class _1101_The_Earliest_Moment_When_Everyone_Become_Friends {
+    // N: number of people
+    // M: number of logs
+    // Time: O(N + MlogM + M)
+    // Space: O(N + logM)
+    public int earliestAcq(int[][] logs, int n) {
+        if (logs.length < n - 1) return -1;
+        Arrays.sort(logs, new TimeStampComparator());
         int components = n;
-        for (int i = 0; i < edges.length; i++) {
-            if (!uf.connected(edges[i][0], edges[i][1])) {
-                uf.union(edges[i][0], edges[i][1]);
+        UnionFind uf = new UnionFind(n);
+        for (int i = 0; i < logs.length; i++) {
+            if (!uf.connected(logs[i][1], logs[i][2])) {
+                uf.union(logs[i][1], logs[i][2]);
                 components--;
             }
+            if (components == 1) {
+                return logs[i][0];
+            }
         }
-        return components;
+        return -1;
+    }
+
+    private class TimeStampComparator implements Comparator<int[]> {
+
+        @Override
+        public int compare(int[] o1, int[] o2) {
+            return o1[0] - o2[0];
+        }
     }
 
     private class UnionFind {
