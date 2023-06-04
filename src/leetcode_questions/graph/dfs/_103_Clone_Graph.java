@@ -1,4 +1,4 @@
-package leetcode_questions.graph;
+package leetcode_questions.graph.dfs;
 
 import java.util.*;
 

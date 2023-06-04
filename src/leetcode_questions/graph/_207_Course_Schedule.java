@@ -2,7 +2,7 @@ package leetcode_questions.graph;
 
 import java.util.*;
 
-public class _207_Course_Schedule_ {
+public class _207_Course_Schedule {
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
         int coursesTaken = 0;
         int[] inMap = new int[numCourses];
@@ -35,14 +35,5 @@ public class _207_Course_Schedule_ {
         }
 
         return coursesTaken == numCourses;
-    }
-
-    public static void main(String[] args) {
-        int[][] test = new int[1][2];
-        int[] test1 = new int[2];
-        test1[0] = 0;
-        test1[1] = 1;
-        test[0] = test1;
-        canFinish(2, test);
     }
 }

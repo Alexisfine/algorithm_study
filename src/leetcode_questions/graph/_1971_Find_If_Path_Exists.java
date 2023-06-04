@@ -2,7 +2,7 @@ package leetcode_questions.graph;
 
 import java.util.*;
 
-public class _1971_Find_If_Path_Exists_ {
+public class _1971_Find_If_Path_Exists {
     public boolean validPath(int n, int[][] edges, int source, int destination) {
         if (source == destination) return true;
         HashMap<Integer, List<Integer>> map = new HashMap<>();
