@@ -1,4 +1,4 @@
-package leetcode_questions.matrix;
+package leetcode_questions.graph.matrix_graphs;
 
 public class _200_Number_Of_Islands {
     public int numIslands(char[][] grid) {
