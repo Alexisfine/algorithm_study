@@ -5,6 +5,8 @@ import java.util.*;
 public class _684_Redundant_Connection {
     boolean isBack = false;
     int cycle;
+    // Time: O(N)
+    // Space: O(N)
     public int[] findRedundantConnection(int[][] edges) {
         HashMap<Integer, List<Integer>> graph = new HashMap<>();
         for (int i = 0; i < edges.length; i++) {
@@ -21,8 +23,6 @@ public class _684_Redundant_Connection {
             if (cyclicEdges.contains(List.of(edges[i][0], edges[i][1]))) {
                 size--;
                 if (size == 0) {
-                    System.out.println(edges[i][0]);
-                    System.out.println(edges[i][1]);
                     return edges[i];
                 }
             }
