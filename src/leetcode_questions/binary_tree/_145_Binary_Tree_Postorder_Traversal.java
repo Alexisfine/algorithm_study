@@ -4,9 +4,29 @@ import com.sun.source.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class _145_Binary_Tree_Postorder_Traversal {
-    public static List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) return list;
+        Stack<TreeNode> s1 = new Stack<>();
+        Stack<TreeNode> s2 = new Stack<>();
+        s1.push(root);
+        while (!s1.isEmpty()) {
+            TreeNode node = s1.pop();
+            s2.push(node);
+            if (node.left != null) s1.push(node.left);
+            if (node.right != null) s1.push(node.right);
+        }
+        while (!s2.isEmpty()) {
+            list.add(s2.pop().val);
+        }
+        return list;
+    }
+
+
+    public static List<Integer> postorderTraversal2(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null) return list;
         TreeNode cur = root;
