@@ -7,7 +7,7 @@ public class _863_All_Nodes_Distance_K_In_Binary_Tree {
         List<Integer> res = new ArrayList<>();
         if (root == null || target == null) return res;
 
-        // initialize graph
+        // initialize algo_questions.graph
         Map<TreeNode, List<TreeNode>> graph = new HashMap<>();
         graph.put(root, new ArrayList<>());
         if (root.left != null) {

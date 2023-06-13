@@ -3,14 +3,14 @@ package leetcode_questions.graph;
 import java.util.*;
 
 public class _886_Possible_Bipartition {
-    // Solution: Change it into a graph coloring problem and use BFS/DFS
+    // Solution: Change it into a algo_questions.graph coloring problem and use BFS/DFS
     public boolean possibleBipartition(int n, int[][] dislikes) {
         int[] color = new int[n + 1];
         List<List<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < color.length; i++) {
             graph.add(new ArrayList<>());
         }
-        // create a graph
+        // create a algo_questions.graph
         for (int i = 0; i < dislikes.length; i++) {
             graph.get(dislikes[i][0]).add(dislikes[i][1]);
             graph.get(dislikes[i][1]).add(dislikes[i][0]);

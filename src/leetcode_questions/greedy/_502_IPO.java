@@ -1,6 +1,5 @@
 package leetcode_questions.greedy;
 
-import greedy.ProjectProfit;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
