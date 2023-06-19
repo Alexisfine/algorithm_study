@@ -1,4 +1,4 @@
-package leetcode_questions.array;
+package leetcode_questions.array.two_pointers;
 
 public class _167_Two_Sum_II {
     public int[] twoSum(int[] numbers, int target) {

@@ -1,4 +1,4 @@
-package leetcode_questions.array;
+package leetcode_questions.array.two_pointers;
 
 public class _11_Container_With_Most_Water {
     public int maxArea(int[] height) {

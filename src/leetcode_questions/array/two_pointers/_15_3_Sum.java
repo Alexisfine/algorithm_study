@@ -1,4 +1,4 @@
-package leetcode_questions.array;
+package leetcode_questions.array.two_pointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;

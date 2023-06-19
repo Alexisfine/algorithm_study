@@ -21,8 +21,4 @@ public class _33_Search_In_Rotated_Sorted_Array {
         return -1;
     }
 
-    public static void main(String[] args) {
-        int[] arr = new int[]{5, 1, 2, 3, 4};
-        System.out.println(search(arr, 1));
-    }
 }
