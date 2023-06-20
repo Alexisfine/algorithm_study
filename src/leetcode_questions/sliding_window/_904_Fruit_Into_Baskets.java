@@ -20,9 +20,6 @@ public class _904_Fruit_Into_Baskets {
         return map.get(fruits[maxA]) + map.get(fruits[maxB]);
     }
 
-    public static void main(String[] args) {
-        System.out.println(totalFruit(new int[]{1, 2, 1}));
-    }
 
 
 }
