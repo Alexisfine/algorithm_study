@@ -1,23 +1,27 @@
 package leetcode_questions.sliding_window;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class _904_Fruit_Into_Baskets {
     public static int totalFruit(int[] fruits) {
-        if (fruits.length < 2) return 1;
-        Integer maxA = null;
-        Integer maxB = null;
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < fruits.length; i++) {
-            int tree = map.getOrDefault(fruits[i], 0) + 1;
-            map.put(fruits[i], tree);
-            if (maxA == null) maxA = i;
-            else if (maxB == null) maxB = i;
-            else if (tree > map.get(fruits[maxA])) maxA = i;
-            else if (tree > map.get(fruits[maxB])) maxB = i;
+        int start = 0;
+        int maxLen = 0;
+        Map<Integer, Integer> map = new HashMap<>(2);
+        for (int end = 0; end < fruits.length; end++) {
+            map.put(fruits[end], end);
+            while (map.size() > 2) {
+                int lastOccurPos = map.get(fruits[start]);
+                if (lastOccurPos == start) {
+                    map.remove(fruits[start]);
+                }
+                start++;
+            }
+            maxLen = Math.max(maxLen, end - start + 1);
         }
-        return map.get(fruits[maxA]) + map.get(fruits[maxB]);
+        return maxLen;
     }
 
 
