@@ -1,4 +1,4 @@
-package leetcode_questions.companies.amazon;
+package leetcode_questions.string.rolling_hash;
 
 public class _2223_Sum_Of_Scores_Of_Built_Strings {
     long[] H = new long[100001];
