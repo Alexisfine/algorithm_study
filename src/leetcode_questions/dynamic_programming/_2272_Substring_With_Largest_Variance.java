@@ -35,7 +35,4 @@ public class _2272_Substring_With_Largest_Variance {
         return variance;
     }
 
-    public static void main(String[] args) {
-        largestVariance("aabbbbaa");
-    }
 }
