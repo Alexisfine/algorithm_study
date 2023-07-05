@@ -51,14 +51,4 @@ public class _5_Longest_Palindromic_Substring {
         }
         return s.substring(maxStart, maxStart + maxLen + 1);
     }
-
-    public static void main(String[] args) {
-        longestPalindrome2("aacabdkacaa");
-
-    }
-
-
-
-
-
 }
