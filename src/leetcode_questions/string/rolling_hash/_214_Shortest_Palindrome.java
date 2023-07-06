@@ -3,7 +3,10 @@ package leetcode_questions.string.rolling_hash;
 public class _214_Shortest_Palindrome {
     // Method: Rolling Hash
 
-    public static String shortestPalindrome(String s) {
+    long modulo;
+    long base;
+    long[] power;
+    public String shortestPalindrome(String s) {
         int N = s.length();
         if (N == 0) return "";
         StringBuilder sb = new StringBuilder();
@@ -15,8 +18,9 @@ public class _214_Shortest_Palindrome {
 
         String newStr = new String(sb);
         N = newStr.length();
-        long base = 27;
-        long modulo = (long) 1e9 + 7;
+        base = 27;
+        modulo = (long) 1e9 + 7;
+
         long[] leftHashMap = new long[N];
         long[] rightHashMap = new long[N];
         long hash = 0;
@@ -30,6 +34,13 @@ public class _214_Shortest_Palindrome {
             long curNum = sb.charAt(i) == '#' ? 26 : sb.charAt(i) - 'a';
             hash = (hash * base + curNum) % modulo;
             rightHashMap[i] = hash;
+        }
+
+        power = new long[N];
+        long pow = 1;
+        for (int i = 0; i < N; i++) {
+            pow = pow * base % modulo;
+            power[i] = pow;
         }
 
         int cur = (int) Math.ceil((double) N / 2);
@@ -55,7 +66,7 @@ public class _214_Shortest_Palindrome {
 
     }
 
-    private static boolean isOK(String str, int mid, long[] leftHashMap, long[] rightHashMap) {
+    private boolean isOK(String str, int mid, long[] leftHashMap, long[] rightHashMap) {
         int left = mid - 1;
         int right = mid + 1;
         if (left == -1) return true;
@@ -63,18 +74,15 @@ public class _214_Shortest_Palindrome {
         int leftLen = left + 1;
         int rightLen = str.length() - right + 1;
         if (leftLen > rightLen) return false;
-        long modulus = (long) 1e9 + 7;
-        long power = 1;
-        for (int i = 0; i < leftLen; i++) {
-            power = power * 27 % modulus;
-        }
+
+        long pow = power[leftLen - 1];
 
         long leftHash =
-                ((rightHashMap[0] - (rightHashMap[left + 1] * power))
-                    % modulus + modulus) % modulus;
+                ((rightHashMap[0] - (rightHashMap[left + 1] * pow))
+                    % modulo + modulo) % modulo;
 
-        long rightHash = ((leftHashMap[mid + leftLen] - leftHashMap[mid] * power)
-                    % modulus + modulus) % modulus;
+        long rightHash = ((leftHashMap[mid + leftLen] - leftHashMap[mid] * pow)
+                    % modulo + modulo) % modulo;
 
         return leftHash == rightHash;
     }
