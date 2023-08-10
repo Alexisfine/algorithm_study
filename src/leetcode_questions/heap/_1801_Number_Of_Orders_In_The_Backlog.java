@@ -81,8 +81,4 @@ public class _1801_Number_Of_Orders_In_The_Backlog {
         return (int) (size % modulo);
     }
 
-    public static void main(String[] args) {
-        _1801_Number_Of_Orders_In_The_Backlog s = new _1801_Number_Of_Orders_In_The_Backlog();
-        System.out.println(s.getNumberOfBacklogOrders(new int[][]{{10, 5, 0}, {15, 2, 1}, {25, 1, 1}, {30, 4, 0}}));
-    }
 }
