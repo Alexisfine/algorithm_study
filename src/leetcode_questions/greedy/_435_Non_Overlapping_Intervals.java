@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class _435_Non_Overlapping_Intervals {
-    public static int eraseOverlapIntervals(int[][] intervals) {
+    public int eraseOverlapIntervals(int[][] intervals) {
         Arrays.sort(intervals, new IntervalComparator());
         int removals = 0;
         int prevEnd = intervals[0][1];
@@ -20,7 +20,7 @@ public class _435_Non_Overlapping_Intervals {
         return removals;
     }
 
-    private static class IntervalComparator implements Comparator<int[]> {
+    private class IntervalComparator implements Comparator<int[]> {
 
 
         @Override
@@ -31,7 +31,7 @@ public class _435_Non_Overlapping_Intervals {
         }
     }
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         eraseOverlapIntervals(new int[][]{{1,2},{2,3},{3,4},{1,3}});
     }
 }
