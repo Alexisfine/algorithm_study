@@ -1,4 +1,4 @@
-package leetcode_questions.greedy;
+package leetcode_questions.greedy.two_pass;
 
 import java.util.Arrays;
 

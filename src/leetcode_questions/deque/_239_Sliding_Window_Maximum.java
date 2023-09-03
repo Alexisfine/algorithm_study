@@ -1,4 +1,4 @@
-package leetcode_questions.sliding_window;
+package leetcode_questions.deque;
 
 import java.util.Deque;
 import java.util.LinkedList;

@@ -1,7 +1,7 @@
 package leetcode_questions.dynamic_programming.basic_ii;
 
 public class _673_Number_Of_Longest_Increasing_Subsequence {
-    public static int findNumberOfLIS(int[] nums) {
+    public int findNumberOfLIS(int[] nums) {
         int N = nums.length;
         int[][] dp = new int[2][N];
 
@@ -32,7 +32,4 @@ public class _673_Number_Of_Longest_Increasing_Subsequence {
         return res;
     }
 
-    public static void main(String[] args) {
-        findNumberOfLIS(new int[]{1,2,4,3,5,4,7,2});
-    }
 }
